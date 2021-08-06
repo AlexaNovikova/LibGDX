@@ -68,6 +68,7 @@ public class MenuScreen extends BaseScreen {
     public void dispose() {
         super.dispose();
         bg.dispose();
+        atlas.dispose();
     }
     private void update(float delta) {
         for (Star star : stars) {
