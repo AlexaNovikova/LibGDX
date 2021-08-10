@@ -1,5 +1,6 @@
 package ru.geekbrains.base;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -16,6 +17,12 @@ public class Sprite extends Rect {
     public Sprite(TextureRegion region) {
         regions = new TextureRegion[1];
         regions[0] = region;
+    }
+
+    public Sprite(TextureRegion region, float v, float u, float v1, float u1) {
+        this(region);
+        regions[0].setRegion(region, (int) (region.getRegionWidth()*v), (int)(region.getRegionHeight()*u),
+                (int)(region.getRegionWidth() * v1), (int)(region.getRegionHeight() * u1));
     }
 
     public void setHeightProportion(float height) {
@@ -38,7 +45,6 @@ public class Sprite extends Rect {
                 angle
         );
     }
-
 
 
     public void resize(Rect worldBounds) {
@@ -73,4 +79,14 @@ public class Sprite extends Rect {
         this.scale = scale;
     }
 
+    public boolean keyDown(int keycode) {
+        return false;
+    }
+    public boolean keyUp(int keycode) {
+        return false;
+    }
 }
+
+
+
+

@@ -33,7 +33,7 @@ public class Logo extends Sprite {
     public void move (){
         direction.set(destination).sub(pos).nor();
         movement.set(direction).scl(SPEED);
-       if (pos.dst(destination) > movement.len()) {
+        if (pos.dst(destination) > movement.len()) {
             pos.add(movement);
         } else {
             pos.set(destination);
