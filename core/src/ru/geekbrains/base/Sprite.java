@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import ru.geekbrains.math.Rect;
+import ru.geekbrains.utils.Regions;
 
 public class Sprite extends Rect {
 
@@ -14,15 +15,18 @@ public class Sprite extends Rect {
     protected TextureRegion[] regions;
     protected int frame;
 
+    private boolean destroyed;
+
+    public Sprite() {
+    }
+
     public Sprite(TextureRegion region) {
         regions = new TextureRegion[1];
         regions[0] = region;
     }
 
-    public Sprite(TextureRegion region, float v, float u, float v1, float u1) {
-        this(region);
-        regions[0].setRegion(region, (int) (region.getRegionWidth()*v), (int)(region.getRegionHeight()*u),
-                (int)(region.getRegionWidth() * v1), (int)(region.getRegionHeight() * u1));
+    public Sprite(TextureRegion region, int rows, int cols, int frames) {
+        regions = Regions.split(region, rows, cols, frames);
     }
 
     public void setHeightProportion(float height) {
@@ -84,6 +88,18 @@ public class Sprite extends Rect {
     }
     public boolean keyUp(int keycode) {
         return false;
+    }
+
+    public void destroy() {
+        destroyed = true;
+    }
+
+    public void flushDestroy() {
+        destroyed = false;
+    }
+
+    public boolean isDestroyed() {
+        return destroyed;
     }
 }
 
