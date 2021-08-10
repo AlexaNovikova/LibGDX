@@ -3,6 +3,7 @@ package ru.geekbrains.base;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix3;
 import com.badlogic.gdx.math.Matrix4;
@@ -35,6 +36,7 @@ public class BaseScreen implements Screen, InputProcessor {
         worldToGl = new Matrix4();
         screenToWorld = new Matrix3();
         touch = new Vector2();
+
     }
 
     @Override
