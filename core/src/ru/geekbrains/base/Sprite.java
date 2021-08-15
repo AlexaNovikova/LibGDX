@@ -86,6 +86,7 @@ public class Sprite extends Rect {
     public boolean keyDown(int keycode) {
         return false;
     }
+
     public boolean keyUp(int keycode) {
         return false;
     }

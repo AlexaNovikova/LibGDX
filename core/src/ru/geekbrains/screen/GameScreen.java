@@ -135,8 +135,7 @@ public class GameScreen extends BaseScreen {
         for (EnemyShip enemyShip : enemyPool.getActiveSprites()) {
             for (Bullet bullet : bulletPool.getActiveSprites()) {
                 if (enemyShip.checkCollisionsAndDestroyIfIsDamaged(bullet) ||
-                    enemyShip.checkCollisionsWithMainShip(mainShip))
-                {
+                        enemyShip.checkCollisionsWithMainShip(mainShip)) {
                     explosionSound.play();
                 }
             }
