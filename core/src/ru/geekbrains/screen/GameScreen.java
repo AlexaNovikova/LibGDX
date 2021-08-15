@@ -12,6 +12,8 @@ import ru.geekbrains.math.Rect;
 import ru.geekbrains.pool.BulletPool;
 import ru.geekbrains.pool.EnemyPool;
 import ru.geekbrains.sprite.Background;
+import ru.geekbrains.sprite.Bullet;
+import ru.geekbrains.sprite.EnemyShip;
 import ru.geekbrains.sprite.MainShip;
 import ru.geekbrains.sprite.Star;
 import ru.geekbrains.utils.EnemyEmitter;
@@ -122,11 +124,24 @@ public class GameScreen extends BaseScreen {
             star.update(delta);
         }
         mainShip.update(delta);
+        checkCollisions();
         bulletPool.updateActiveSprites(delta);
         enemyPool.updateActiveSprites(delta);
         enemyEmitter.generate(delta);
     }
 
+
+    private void checkCollisions() {
+        for (EnemyShip enemyShip : enemyPool.getActiveSprites()) {
+            for (Bullet bullet : bulletPool.getActiveSprites()) {
+                if (enemyShip.checkCollisionsAndDestroyIfIsDamaged(bullet) ||
+                    enemyShip.checkCollisionsWithMainShip(mainShip))
+                {
+                    explosionSound.play();
+                }
+            }
+        }
+    }
 
     private void freeAllDestroyed() {
         bulletPool.freeAllDestroyedActiveSprites();
