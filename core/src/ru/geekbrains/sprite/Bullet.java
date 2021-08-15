@@ -1,5 +1,7 @@
 package ru.geekbrains.sprite;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
@@ -13,9 +15,11 @@ public class Bullet extends Sprite {
     private int damage;
     private Sprite owner;
 
+
     public Bullet() {
         regions = new TextureRegion[1];
         v = new Vector2();
+
     }
 
     public void set(
@@ -51,4 +55,5 @@ public class Bullet extends Sprite {
     public Sprite getOwner() {
         return owner;
     }
+
 }
