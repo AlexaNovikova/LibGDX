@@ -161,4 +161,9 @@ public class MainShip extends Ship {
         v.setZero();
     }
 
+    public void reset (int hp){
+        this.hp=hp;
+        reset();
+    }
+
 }
