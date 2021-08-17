@@ -56,4 +56,23 @@ public class EnemyShip extends Ship {
         bulletPos.set(pos.x, pos.y + getHalfHeight());
     }
 
+    public boolean checkCollisionsAndDestroyIfIsDamaged(Bullet bullet) {
+        if (!this.isOutside(bullet) && bullet.getOwner().getClass() == MainShip.class) {
+            hp -= bullet.getDamage();
+            bullet.destroy();
+            if (this.hp < 0) {
+                destroy();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkCollisionsWithMainShip(MainShip mainShip) {
+        if (!this.isOutside(mainShip)) {
+            destroy();
+            return true;
+        }
+        return false;
+    }
 }
