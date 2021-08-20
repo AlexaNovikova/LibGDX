@@ -11,8 +11,12 @@ public class NewGameButton extends BaseButton {
 
     private static final float BOTTOM_MARGIN = 0.5f;
 
-    public NewGameButton(TextureAtlas atlas, Rect worldBounds) {
+    private final GameScreen gameScreen;
+
+
+    public NewGameButton(TextureAtlas atlas, Rect worldBounds, GameScreen gameScreen) {
         super(atlas.findRegion("button_new_game"));
+        this.gameScreen = gameScreen;
         resize(worldBounds);
     }
 
@@ -24,7 +28,7 @@ public class NewGameButton extends BaseButton {
 
     @Override
     public void action() {
-        GameScreen.newGame();
+        gameScreen.newGame();
     }
 
 }

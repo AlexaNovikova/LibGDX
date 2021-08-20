@@ -19,7 +19,6 @@ public class Bullet extends Sprite {
     public Bullet() {
         regions = new TextureRegion[1];
         v = new Vector2();
-
     }
 
     public void set(
