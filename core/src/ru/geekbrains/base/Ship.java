@@ -68,6 +68,7 @@ public abstract class Ship extends Sprite {
         if (hp <= 0) {
             hp = 0;
             destroy();
+            boom();
         }
         frame = 1;
         damageAnimateTimer = 0f;
@@ -82,7 +83,6 @@ public abstract class Ship extends Sprite {
     @Override
     public void destroy() {
         super.destroy();
-        boom();
     }
 
     private void shoot() {
@@ -91,7 +91,7 @@ public abstract class Ship extends Sprite {
         bulletSound.play();
     }
 
-    private void boom() {
+    public void boom() {
         Explosion explosion = explosionPool.obtain();
         explosion.set(pos, getHeight());
     }

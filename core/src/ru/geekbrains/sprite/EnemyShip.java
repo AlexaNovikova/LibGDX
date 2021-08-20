@@ -58,14 +58,6 @@ public class EnemyShip extends Ship {
     }
 
 
-    public boolean checkCollisionsWithMainShip(MainShip mainShip) {
-        if (!this.isOutside(mainShip)) {
-            destroy();
-            return true;
-        }
-        return false;
-    }
-
     public void setPos(float x, float y) {
         pos.set(x, y);
         bulletPos.set(pos.x, pos.y - getHalfHeight());
@@ -86,4 +78,5 @@ public class EnemyShip extends Ship {
         super.destroy();
         reloadTimer = 0f;
     }
+
 }
