@@ -2,6 +2,7 @@ package ru.geekbrains.sprite;
 
 
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -163,7 +164,13 @@ public class MainShip extends Ship {
 
     public void reset (int hp){
         this.hp=hp;
-        reset();
+        pressedLeft=false;
+        pressedRight=false;
+        rightPointer = INVALID_POINTER;
+        leftPointer = INVALID_POINTER;
+        stop();
+        this.pos.x = worldBounds.pos.x;
+       flushDestroy();
     }
 
 }

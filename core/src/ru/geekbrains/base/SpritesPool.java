@@ -32,6 +32,12 @@ public abstract class SpritesPool<T extends Sprite> {
         }
     }
 
+    public void freeAllActiveSprites() {
+        freeSprites.addAll(activeSprites);
+        activeSprites.clear();
+    }
+
+
     public void drawActiveSprites(SpriteBatch batch) {
         for (Sprite sprite : activeSprites) {
             if (!sprite.isDestroyed()) {

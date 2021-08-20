@@ -95,10 +95,6 @@ public class Sprite extends Rect {
         destroyed = true;
     }
 
-    public void reset() {
-        destroyed = false;
-    }
-
     public void flushDestroy() {
         destroyed = false;
     }
@@ -106,6 +102,7 @@ public class Sprite extends Rect {
     public boolean isDestroyed() {
         return destroyed;
     }
+
 }
 
 
