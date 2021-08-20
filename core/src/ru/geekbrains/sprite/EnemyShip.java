@@ -11,11 +11,13 @@ import ru.geekbrains.pool.ExplosionPool;
 
 public class EnemyShip extends Ship {
 
-    public EnemyShip(Rect worldBounds, BulletPool bulletPool, ExplosionPool explosionPool) {
+    public EnemyShip(Rect worldBounds, BulletPool bulletPool, ExplosionPool explosionPool,
+                     Sound damageSound) {
         super();
         this.worldBounds = worldBounds;
         this.bulletPool = bulletPool;
         this.explosionPool = explosionPool;
+        this.damageSound =damageSound;
     }
 
     @Override

@@ -48,10 +48,10 @@ public class FirstAidEmitter {
         v = new Vector2();
     }
 
-    public void generate(float delta, int level) {
+    public void generate(float delta) {
         generateTimer += delta;
 
-        if (generateTimer >= GENERATE_INTERVAL+level) {
+        if (generateTimer >= GENERATE_INTERVAL) {
             generateTimer = 0f;
             FirstAid firstAid = firstAidPool.obtain();
             float type = (float) Math.random();

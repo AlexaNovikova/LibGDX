@@ -28,7 +28,8 @@ public class MainShip extends Ship {
     private int leftPointer = INVALID_POINTER;
     private int rightPointer = INVALID_POINTER;
 
-    public MainShip(TextureAtlas atlas, BulletPool bulletPool, ExplosionPool explosionPool, Sound bulletSound) {
+    public MainShip(TextureAtlas atlas, BulletPool bulletPool, ExplosionPool explosionPool,
+                    Sound bulletSound, Sound damageSound) {
         super(atlas.findRegion("main_ship"), 1, 2, 2);
         this.bulletPool = bulletPool;
         this.explosionPool = explosionPool;
@@ -40,6 +41,7 @@ public class MainShip extends Ship {
         reloadInterval = RELOAD_INTERVAL;
         v0.set(0.5f, 0);
         hp = HP;
+        this.damageSound = damageSound;
     }
 
     @Override

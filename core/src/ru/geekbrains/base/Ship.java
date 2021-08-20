@@ -27,6 +27,7 @@ public abstract class Ship extends Sprite {
     protected int bulletDamage;
     protected Sound bulletSound;
     protected int hp;
+    protected Sound damageSound;
 
     protected float reloadInterval;
     protected float reloadTimer;
@@ -63,8 +64,12 @@ public abstract class Ship extends Sprite {
         }
     }
 
-    public void damage(int damage) {
+    public void damage(int damage, boolean isSound) {
         hp -= damage;
+        if(isSound)
+        {
+            damageSound.play();
+        }
         if (hp <= 0) {
             hp = 0;
             destroy();
