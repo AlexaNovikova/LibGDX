@@ -1,0 +1,19 @@
+
+addAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+asteroid
+  rotate: false
+  xy: 1, 1
+  size: 800, 800
+  orig: 800, 800
+  offset: 0, 0
+  index: -1
+first_aid_kit
+  rotate: false
+  xy: 803, 456
+  size: 200, 345
+  orig: 200, 345
+  offset: 0, 0
+  index: -1
